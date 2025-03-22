@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# Step 0: Ask the user if they want to uninstall an old version of Postman if it exists
+# Define variables
 INSTALL_DIR="/opt/Postman"  # Where Postman will be installed
+TEMP_DIR="/tmp/Postman_install"  # Temporary directory for extraction
+LAUNCHER_PATH="/usr/local/bin/postman"  # The path for the launcher script
+DESKTOP_FILE="$HOME/Desktop/Postman.desktop"  # Path to the desktop shortcut
+
+# Step 0: Ask the user if they want to uninstall an old version of Postman if it exists
 
 # Check if Postman is already installed
 if [ -d "$INSTALL_DIR" ]; then
@@ -19,14 +24,11 @@ else
 fi
 
 # Step 1: Ask for the file path for the new Postman tar file
-echo "Enter File Name With Path"
+echo "Enter File Path With File Name"
 read file_path
 echo "Provided Path [$file_path]"
 
-TAR_FILE="$file_path"  # Adjust to your download path
-TEMP_DIR="/tmp/Postman_install"  # Temporary directory for extraction
-LAUNCHER_PATH="/usr/local/bin/postman"  # The path for the launcher script
-DESKTOP_FILE="$HOME/Desktop/Postman.desktop"  # Path to the desktop shortcut
+TAR_FILE="$file_path"  # The file path to the tar file
 
 # Step 2: Check if the tar file exists
 if [ ! -f "$TAR_FILE" ]; then
@@ -82,4 +84,3 @@ else
     echo "Installation failed."
     exit 1
 fi
-

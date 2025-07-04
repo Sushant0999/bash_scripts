@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables for file paths and passwords
-DOMAIN="missmartz.netsmartz.us"
+DOMAIN="" # only domain name for example : misstg.netsmartz.us
 CERT_PATH="/etc/letsencrypt/live/$DOMAIN"
 SSL_CERT_PATH="/etc/ssl/certs"
 P12_PASSWORD="Groot@222"
